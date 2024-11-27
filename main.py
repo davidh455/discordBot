@@ -46,6 +46,15 @@ async def on_message(message):
         elif user_message.lower() == "region":
             await message.channel.send(f'Your EC2 region is {ec2_metadata.region}')
             return
+        elif user_message.lower() == "ip":
+            await message.channel.send(f'Your public ip is {ec2_metadata.public_ipv4}')
+            return
+        elif user_message.lower() == "zone":
+            await message.channel.send(f'Your availbility zone is {ec2_metadata.availability_zone}')
+            return
+        elif user_message.lower() == "tell me about my server":
+            await message.channel.send(f'Your EC2 region is {ec2_metadata.region}, Your public ip is {ec2_metadata.public_ipv4}, Your availbility zone is {ec2_metadata.availability_zone} ')
+            return
 
 
 client.run(token)
